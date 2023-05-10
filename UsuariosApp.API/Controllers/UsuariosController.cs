@@ -37,7 +37,7 @@ namespace UsuariosApp.API.Controllers
 
         public IActionResult CriarConta(CriarContaRequestDTO dto)
         {
-            return Ok();
+            return StatusCode(201, _usuarioAppService?.CriarConta(dto));
         }
     }
 }
