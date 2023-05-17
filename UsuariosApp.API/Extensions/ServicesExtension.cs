@@ -3,7 +3,6 @@ using UsuariosApp.Application.Services;
 using UsuariosApp.Domain.Interfaces.Repositories;
 using UsuariosApp.Domain.Interfaces.Services;
 using UsuariosApp.Domain.Services;
-using UsuariosApp.Infra.Data.Contexts;
 using UsuariosApp.Infra.Data.Repositories;
 
 namespace UsuariosApp.API.Extensions

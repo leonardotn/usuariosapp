@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace UsuariosApp.Application.Models.Responses
+﻿namespace UsuariosApp.Application.Models.Responses
 {
     public class CriarContaResponseDTO
     {

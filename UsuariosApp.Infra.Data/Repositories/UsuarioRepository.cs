@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UsuariosApp.Domain.Interfaces.Repositories;
+﻿using UsuariosApp.Domain.Interfaces.Repositories;
 using UsuariosApp.Domain.Models;
 using UsuariosApp.Infra.Data.Contexts;
 
@@ -13,7 +8,7 @@ namespace UsuariosApp.Infra.Data.Repositories
     {
         private readonly DataContext? _dataContext;
 
-        public UsuarioRepository(DataContext? dataContext) : base(dataContext) 
+        public UsuarioRepository(DataContext? dataContext) : base(dataContext)
         {
             _dataContext = dataContext;
         }

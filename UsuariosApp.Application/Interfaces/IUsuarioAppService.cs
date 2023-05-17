@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UsuariosApp.Application.Models.Requests;
+﻿using UsuariosApp.Application.Models.Requests;
 using UsuariosApp.Application.Models.Responses;
 
 namespace UsuariosApp.Application.Interfaces
@@ -12,5 +7,7 @@ namespace UsuariosApp.Application.Interfaces
     {
         AutenticarResponseDTO Autenticar(AutenticarRequestDTO dto);
         CriarContaResponseDTO CriarConta(CriarContaRequestDTO dto);
+        RecuperarSenhaResponseDTO RecuperarSenha(RecuperarSenhaRequestDTO dto);
+
     }
 }

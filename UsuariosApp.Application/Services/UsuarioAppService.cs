@@ -1,10 +1,5 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
+using UsuariosApp.Application.Helpers;
 using UsuariosApp.Application.Interfaces;
 using UsuariosApp.Application.Models.Requests;
 using UsuariosApp.Application.Models.Responses;
@@ -26,7 +21,8 @@ namespace UsuariosApp.Application.Services
 
         public AutenticarResponseDTO Autenticar(AutenticarRequestDTO dto)
         {
-            throw new NotImplementedException();
+            var usuario = _usuarioDomainService?.Autenticar(dto.Email, Sha1Helper.Encrypt(dto.Senha));
+            return _mapper.Map<AutenticarResponseDTO>(usuario);
         }
 
         public CriarContaResponseDTO CriarConta(CriarContaRequestDTO dto)
@@ -35,6 +31,12 @@ namespace UsuariosApp.Application.Services
             _usuarioDomainService.CriarConta(usuario);
 
             return _mapper.Map<CriarContaResponseDTO>(usuario);
+        }
+
+        public RecuperarSenhaResponseDTO RecuperarSenha(RecuperarSenhaRequestDTO dto)
+        {
+            var usuario = _usuarioDomainService.RecuperarSenha(dto.Email);
+            return _mapper.Map<RecuperarSenhaResponseDTO>(usuario);
         }
 
         public void Dispose()
