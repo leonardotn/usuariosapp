@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,10 +16,12 @@ namespace UsuariosApp.Application.Services
     public class UsuarioAppService : IUsuarioAppService
     {
         private readonly IUsuarioDomainService? _usuarioDomainService;
+        private readonly IMapper? _mapper;
 
-        public UsuarioAppService(IUsuarioDomainService? usuarioDomainService)
+        public UsuarioAppService(IUsuarioDomainService? usuarioDomainService, IMapper? mapper)
         {
             this._usuarioDomainService = usuarioDomainService;
+            _mapper = mapper;
         }
 
         public AutenticarResponseDTO Autenticar(AutenticarRequestDTO dto)
@@ -28,23 +31,10 @@ namespace UsuariosApp.Application.Services
 
         public CriarContaResponseDTO CriarConta(CriarContaRequestDTO dto)
         {
-            var usuario = new Usuario
-            {
-                Id = Guid.NewGuid(),
-                Nome = dto.Nome,
-                Email = dto.Email,
-                Senha = dto.Senha,
-                DataHoraCriacao = DateTime.Now
-            };
+            var usuario = _mapper?.Map<Usuario>(dto);
             _usuarioDomainService.CriarConta(usuario);
 
-            return new CriarContaResponseDTO
-            {
-                Id = usuario.Id,
-                Nome = usuario.Nome,
-                Email = usuario.Email,
-                DataHoraCriacao = usuario.DataHoraCriacao
-            };
+            return _mapper.Map<CriarContaResponseDTO>(usuario);
         }
 
         public void Dispose()
