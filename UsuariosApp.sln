@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsuariosApp.Infra.Data", "U
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsuariosApp.Tests", "UsuariosApp.Tests\UsuariosApp.Tests.csproj", "{E2E24FDE-1726-4466-86DF-5B86B156C922}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsuariosApp.Infra.Messages", "UsuariosApp.Infra.Messages\UsuariosApp.Infra.Messages.csproj", "{359564BF-43DE-42B0-B213-2F019C4408F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsuariosApp.Infra.Messages", "UsuariosApp.Infra.Messages\UsuariosApp.Infra.Messages.csproj", "{359564BF-43DE-42B0-B213-2F019C4408F3}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{81668CF0-E658-4D81-86AB-8CD674CEE446}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{359564BF-43DE-42B0-B213-2F019C4408F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{359564BF-43DE-42B0-B213-2F019C4408F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{359564BF-43DE-42B0-B213-2F019C4408F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81668CF0-E658-4D81-86AB-8CD674CEE446}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81668CF0-E658-4D81-86AB-8CD674CEE446}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81668CF0-E658-4D81-86AB-8CD674CEE446}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81668CF0-E658-4D81-86AB-8CD674CEE446}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
