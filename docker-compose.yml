@@ -8,9 +8,11 @@ services:
       dockerfile: UsuariosApp.API/Dockerfile
     depends_on:
       - db
-    links:
       - rabbitmq
+    ports: 
+      - 54213:80
   db:
+    container_name: usuarioapp_db
     image: mcr.microsoft.com/mssql/server:2019-latest
     environment:
       SA_PASSWORD: "@Coti2023"
@@ -18,8 +20,15 @@ services:
     ports:
       - "1433:1433"
   rabbitmq:
+    container_name: usuarioapp_rabbitmq
     image: rabbitmq:3-management
     hostname: "rabbitmq"
     ports:
       - "5672:5672"
       - "15672:15672"
+    expose:
+      - 5672
+      - 15672
+    environment:
+      - RABBITMQ_DEFAULT_USER = guest
+      - RABBITMQ_DEFAULT_PASS = guest

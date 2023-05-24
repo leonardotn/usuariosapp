@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using UsuariosApp.Application.Models.Requests;
 using UsuariosApp.Application.Models.Responses;
 using UsuariosApp.Domain.Models;
 

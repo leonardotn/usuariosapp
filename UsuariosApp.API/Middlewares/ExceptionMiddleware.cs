@@ -10,17 +10,17 @@ namespace UsuariosApp.API.Middlewares
 
         public ExceptionMiddleware(RequestDelegate? next) { _next = next; }
 
-        public async Task InvokeAsync(HttpContext context) 
-        { 
+        public async Task InvokeAsync(HttpContext context)
+        {
             try
             {
                 await _next(context);
             }
-            catch(EmailJaCadastradoException ex)
+            catch (EmailJaCadastradoException ex)
             {
                 await HandleExceptionAsync(context, ex);
             }
-            catch(AcessoNegadoException ex)
+            catch (AcessoNegadoException ex)
             {
                 await HandleExceptionAsync(context, ex);
             }
@@ -36,7 +36,7 @@ namespace UsuariosApp.API.Middlewares
 
         private async Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
-            switch(exception)
+            switch (exception)
             {
                 case EmailJaCadastradoException:
                     context.Response.StatusCode = (int)HttpStatusCode.BadRequest;

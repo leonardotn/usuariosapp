@@ -1,11 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using UsuariosApp.Application.Interfaces.Producers;
 using UsuariosApp.Application.Models.Producers;
 using UsuariosApp.Infra.Messages.Settings;
@@ -24,7 +20,13 @@ namespace UsuariosApp.Infra.Messages.Producers
 
         public void Send(UsuarioMessageDTO dto)
         {
-            var _connectionFactory = new ConnectionFactory() { Uri = new Uri(_messageSettings?.Url) };
+            var _connectionFactory = new ConnectionFactory()
+            {
+                HostName = _messageSettings?.Hostname,
+                Port = _messageSettings.Port,
+                UserName = _messageSettings?.Username,
+                Password = _messageSettings?.Password,
+            };
             using (var connection = _connectionFactory.CreateConnection())
             {
                 using (var model = connection.CreateModel())
